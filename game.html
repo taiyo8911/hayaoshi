@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>早押しゲーム</title>
+    <link rel="stylesheet" href="style2.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1 class="center"><a href="index.html">早押しアタック</a></h1>
+    <br>
+    <div class="center">
+        <button class="btn center"
+            onclick="this.disabled = true; shuffleTable(),showPassage(),startShowing()">ゲームスタート</button>
+    </div>
+    <br>
+    <table id="t1" onclick="get()" class="center">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+        </tr>
+    </table>
+
+    <p id="PassageArea" class="timer-box center"></p>
+
+    <div class="center">
+        <a href="index.html"><button class="btn">はじめから遊ぶ</button></a>
+    </div>
+</body>
+
+</html>
