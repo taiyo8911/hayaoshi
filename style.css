@@ -1,0 +1,40 @@
+body {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn {
+    font-size: 40px;
+    border-radius: 15px;
+    background-color: skyblue;
+    color: blueviolet;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+}
+
+.center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.rule {
+    border: solid 1px;
+    background-color: blanchedalmond;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
