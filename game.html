@@ -6,18 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>早押しゲーム</title>
     <link rel="stylesheet" href="style2.css">
-    <script src="script.js"></script>
 </head>
 
 <body>
     <h1 class="center"><a href="index.html">早押しアタック</a></h1>
     <br>
     <div class="center">
-        <button class="btn center"
-            onclick="this.disabled = true; shuffleTable(),showPassage(),startShowing()">ゲームスタート</button>
+        <button id="start" class="btn center"
+            onclick="this.disabled = true; shuffleTable(), countUp(), startShowing(), showPassage()">ゲームスタート</button>
     </div>
     <br>
-    <table id="t1" onclick="get()" class="center">
+    <table id="table" onclick="get()" class="center">
         <tr>
             <td>1</td>
             <td>2</td>
@@ -55,11 +54,15 @@
         </tr>
     </table>
 
-    <p id="PassageArea" class="timer-box center"></p>
+
+    <p id="timer" class="timer-box center"></p>
 
     <div class="center">
         <a href="index.html"><button class="btn">はじめから遊ぶ</button></a>
     </div>
+
+    <script src="script.js"></script>
+
 </body>
 
 </html>

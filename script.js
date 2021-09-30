@@ -1,7 +1,7 @@
 //テーブルをシャッフルする
 function shuffleTable() {
-    var n1 = document.getElementById("t1").getElementsByTagName("td");
-    var n2 = new Array();
+    var n1 = document.getElementById("table").getElementsByTagName("td");
+    var n2 = [];
 
     for (var i = 0; i < n1.length; i++) {
         n2.push(n1[i].cloneNode(true));
@@ -22,26 +22,13 @@ function shuffleTable() {
 }
 
 
-//タイマー関係
-var PassSec = -1; // 秒数カウント用変数
-
-// 繰り返し処理の中身
-function showPassage() {
-    PassSec++; // カウントアップ
-    var msg = PassSec + "秒"; // 表示文作成
-    document.getElementById("PassageArea").innerHTML = msg; // 表示更新
+// 終了時にアニメーションを起動
+function animation() {
+    let timer = document.getElementById("timer");
+    timer.classList.add("animation");
 }
 
-// 繰り返し処理の開始
-function startShowing() {
-    PassSec = 0; // カウンタのリセット
-    PassageID = setInterval('showPassage()', 1000); // タイマーをセット(1000ms間隔)
-}
 
-// 繰り返し処理の中止
-function stopShowing() {
-    clearInterval(PassageID);
-}
 
 
 //押した番号が順番通りかどうか判定するための数値を定義
@@ -49,17 +36,42 @@ var count = 1;
 
 function get() {
     //クリックした要素の文字を取得
-    var myclick = event.target.innerText;
-    //文字を数値に変換
-    var mystr = Number(myclick);
-    if (count > 25)
-        stopShowing(); //25まで押したらタイマーを止める
-    else {
+    let myClick = event.target.innerText;
+
+    if (count <= 25) {
         //押した番号が正しいか判定する
-        if (mystr == count) {
+        if (myClick == count) {
             event.target.style.fontWeight = "bold"; //正しければ太文字にする
             count++; //判定用の数値に1を加算する
             get(); //関数getを繰り返す
         }
     }
+
+    else {
+        // タイマーを点滅させる
+        animation();
+
+
+    }
+}
+
+let startTime = Date.now();
+let timer_id;
+
+//countUp()関数の中身
+function countUp() {
+    const d = new Date(Date.now() - startTime);
+    const s = String(d.getSeconds()).padStart(2, "0");
+    const ms = String(d.getMilliseconds()).padStart(3, "0");
+    timer.textContent = `${s}:${ms}`;
+
+    timer_id = setTimeout(() => {
+        countUp();
+    }, 10);
+
+
+    if (count == 26) {
+        clearTimeout(timer_id);
+    }
+
 }

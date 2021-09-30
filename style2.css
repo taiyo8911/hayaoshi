@@ -1,5 +1,6 @@
 body {
     box-sizing: border-box;
+    font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 }
 
 a {
@@ -51,4 +52,19 @@ table td {
     font-size: 35px;
     border-radius: 20px;
     padding: 10px;
+}
+
+.animation {
+    animation: blinkAnimeS1 0.6s infinite alternate;
+}
+
+@keyframes blinkAnimeS1 {
+    0% {
+        background: yellow;
+        color: red;
+    }
+    100% {
+        background: black;
+        color: red;
+    }
 }
