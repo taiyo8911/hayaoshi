@@ -70,15 +70,3 @@ function timerAnimation() {
     let timer = document.getElementById("timer");
     timer.classList.add("animation");
 }
-
-
-function tweet() {
-
-    let time = document.getElementById("timer").innerHTML;
-    const dataText = `本日の記録：${time}`;
-
-    const dataUrl = encodeURIComponent(location.href = "https://taiyo8911.github.io/hayaoshi/");
-    const dataHashtags = '早押しアタック';
-
-    window.open('https://twitter.com/share?text=' + dataText + '&url=' + dataUrl + '&hashtags=' + dataHashtags);
-}
