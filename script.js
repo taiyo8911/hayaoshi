@@ -36,26 +36,25 @@ function countUp() {
         countUp();
     }, 10);
 
-
     if (correctAns == 26) {
         clearTimeout(timer_id);
     }
-
 }
+
 
 
 // 正解判定
 let correctAns = 1;
 
 function get() {
-    //クリックした要素の文字を取得
+    //クリックした要素を取得
     let myClick = event.target.innerText;
 
     if (correctAns <= 25) {
         //押した番号が正しいか判定する
         if (myClick == correctAns) {
             event.target.style.fontWeight = "bold"; //正しければ太文字にする
-            correctAns++; //判定用の数値に1を加算する
+            correctAns++; // 正解の値を変える
             get(); //関数getを繰り返す
         }
     }
@@ -63,7 +62,6 @@ function get() {
     else {
         // 終了時の処理
         timerAnimation();
-
     }
 }
 
@@ -71,4 +69,16 @@ function get() {
 function timerAnimation() {
     let timer = document.getElementById("timer");
     timer.classList.add("animation");
+}
+
+
+function tweet() {
+
+    let time = document.getElementById("timer").innerHTML;
+    const dataText = `本日の記録：${time}`;
+
+    const dataUrl = encodeURIComponent(location.href = "https://taiyo8911.github.io/hayaoshi/");
+    const dataHashtags = '早押しアタック';
+
+    window.open('https://twitter.com/share?text=' + dataText + '&url=' + dataUrl + '&hashtags=' + dataHashtags);
 }
