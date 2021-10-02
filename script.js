@@ -22,6 +22,23 @@ function shuffleTable() {
 }
 
 
+// BGMを再生する
+function playBGM() {
+    //音声の再生
+    let bgm = document.getElementById("bgm")
+    bgm.volume = 0.3;
+    bgm.currentTime = 1.2;
+    bgm.play();
+}
+
+
+// BGMを停止する
+function stopBGM() {
+    let bgm = document.getElementById("bgm")
+    bgm.muted = true;
+}
+
+
 // カウントアップタイマー
 let startTime = Date.now();
 let timer_id;
@@ -62,6 +79,7 @@ function get() {
     else {
         // 終了時の処理
         timerAnimation();
+        stopBGM();
     }
 }
 
@@ -70,3 +88,4 @@ function timerAnimation() {
     let timer = document.getElementById("timer");
     timer.classList.add("animation");
 }
+
