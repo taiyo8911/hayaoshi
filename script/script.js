@@ -1,4 +1,6 @@
-// テーブルをシャッフルする
+"use strict";
+
+// テーブルをシャッフル
 function shuffleTable() {
     let n1 = document.getElementById("table").getElementsByTagName("td");
     let n2 = [];
@@ -22,7 +24,7 @@ function shuffleTable() {
 }
 
 // カウントアップタイマー
-let startTime = Date.now();
+const startTime = Date.now();
 let timer_id;
 
 function countUp() {
@@ -35,18 +37,27 @@ function countUp() {
         countUp();
     }, 10);
 
-    if (correctAns == 26) {
+    if (count == 26) {
         clearTimeout(timer_id);
         timerAnimation();
+        stopBGM();
     }
 }
 
-// 終了時のタイマーアニメーション
-function timerAnimation() {
-    let timer = document.getElementById("timer");
-    timer.classList.add("animation");
+// BGMを再生する
+function playBGM() {
+    //音声の再生
+    let bgm = document.getElementById("bgm");
+    bgm.volume = 0.2;
+    bgm.currentTime = 1.4;
+    bgm.play();
 }
 
+// BGMを停止する
+function stopBGM() {
+    let bgm = document.getElementById("bgm");
+    bgm.muted = true;
+}
 
 // ミス時の効果音再生
 function effect() {
@@ -54,23 +65,27 @@ function effect() {
     effect.play();
 }
 
+// 終了時のアニメーション
+function timerAnimation() {
+    let timer = document.getElementById("timer");
+    timer.classList.add("animation");
+}
 
-// 正解判定
-let correctAns = 1;
+// 正誤判定
+let count = 1;
 
 function get() {
-    //クリックした要素を取得
+    //クリックした要素を取得(番号を取得)
     let myClick = event.target.innerText;
 
-    // 正解の時の処理
-    if (correctAns <= 25 && myClick == correctAns) {
-        event.target.style.fontWeight = "bold"; //正しければ太文字にする
-        correctAns++; // 正解の値を変える
+    // countが25以下で正しい数字を押した場合
+    if (count <= 25 && myClick == count) {
+        // 太文字にする
+        event.target.style.fontWeight = "bold";
+        // カウントをインクリメント
+        count++;
     }
-
-    // ミス時の処理
-    else if (myClick != correctAns) {
+    else if (myClick != count) {
         effect();
     }
-
 }

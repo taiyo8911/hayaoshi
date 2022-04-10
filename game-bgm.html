@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="css/game.css">
 </head>
 
-<body onload="shuffleTable(), countUp()">
+<body onload="shuffleTable(), countUp(), playBGM()">
 
     <audio id="effect" src="audio/effect-omanuke.mp3">あなたのブラウザーは <code>audio</code>要素をサポートしていません。</audio>
     <audio id="bgm" src="audio/bgm-csikos.mp3" loop>あなたのブラウザーは <code>audio</code>要素をサポートしていません。</audio>
 
     <div id="main" class="container">
-        <div class="">
+        <div>
             <h1>早押しアタック</h1>
             <table id="table" onclick="get()">
                 <tr>
@@ -57,14 +57,13 @@
 
             <div id="timer" class="timer"></div>
 
-            <a href="game.html" class="btn btn--yellow">リトライ</a>
+            <a href="game-bgm.html" class="btn btn--yellow">リトライ</a>
             <a href="index.html" class="btn btn--yellow">HOME</a>
 
         </div>
+
+        <script src="script/script.js"></script>
     </div>
-
-    <script src="script/script.js"></script>
-
 </body>
 
 </html>
