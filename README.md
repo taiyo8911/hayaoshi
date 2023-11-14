@@ -1,7 +1,5 @@
 # hayaoshi
-操縦者の適正試験に使われているテスト。
-
-ランダムに表示された数字を1から順にクリックして速度を測るゲーム。
+表示された数字を1から順にクリックして速度を測るゲーム
 
 ### 参考サイト
 * [経過時間をリアルタイムに表示する](https://www.nishishi.com/javascript-tips/setinterval-passage.html)
